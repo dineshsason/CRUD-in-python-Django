@@ -1,0 +1,33 @@
+{% extends  "app/master.html" %}
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<body>
+ {% block content %}
+<table class="table table-striped" style="margin-top:30px;">
+<tr>
+    <td>Sl. No</td><td>First Name</td><td>Last Name</td><td>Section</td><td>Address</td><td>Marks</td><td>Actions</td>
+</tr>
+
+	
+	{% for student in students%}
+	<tr>
+	      <td>{{student.id}}</td>
+		  <td>{{student.first_name}}</td>
+		  <td>{{student.last_name}}</td>
+		  <td>{{student.section}}</td>
+		  <td>{{student.address}}</td>
+		  <td>{{student.marks}}</td>
+		  <td><a style="text-decoration:none; background-color:lightgreen;border:1px ;padding:10px;color:black;" href="/app/edit/{{student.id}}/">Edit</a>&nbsp;&nbsp;
+		  <a style="text-decoration:none; background-color:red;border:1px solid;padding:10px; color:white;" href="/app/dele/{{student.id}}/">Delete</a></td>
+	</tr>
+	{%endfor%}
+
+</table>
+<a style="margin-left:500px;text-decoration:none; background-color:lightblue;border:1px;padding:10px; color:black;"href='/app/add'> Add New</a>
+ {% endblock %}
+</body>
+</html>

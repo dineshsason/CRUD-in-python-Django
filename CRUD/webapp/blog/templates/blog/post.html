@@ -1,0 +1,12 @@
+{% extends  "app/master.html" %}
+{% block content %}
+<div id="div1" style="width:300px;height:300px;background-color:white;color:black;">
+<h3><a href="/blog/{{post.id}}">{{ post.title }}</a></h3>
+<h6> on {{ post.date }}</h6>
+
+<div class = "container">
+	{{ post.body|safe|linebreaks}}
+</div>
+</div>
+<br><br>
+{% endblock %}
